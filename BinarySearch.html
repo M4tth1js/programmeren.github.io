@@ -1,0 +1,85 @@
+<head>
+<body>
+<script>
+    // Dit is het Binarysearch programma, direct hieronder wordt eerst de bubblesort gebruikt om de lijst te sorteren, zodat daarna het binarysearch programma kan worden uitgevoerd
+    // Hieronder worden de benodigde variablen verklaard die het programma gebruikt.
+    var i, rijGrootte, keuze, temp, teller;
+
+    // hieronder wordt de gebruiker gevraagd hoelang de hun gewenste lijst is
+    window.alert("Hoeveel getallen zou je willen sorteren?");
+    rijGrootte = Number(window.prompt('Enter a value for rijGrootte'));
+    var getallenRij = createArray(rijGrootte);
+
+    // hier wordt de lijst aangemaakt
+    for (i = 0; i <= rijGrootte - 1; i++) {
+        getallenRij[i] = Math.floor(Math.random() * 100);
+    }
+
+    // Hieronder wordt de lijst weergeven op een ongesorteerd manier
+    for (i = 0; i <= rijGrootte - 1; i++) {
+        window.alert(getallenRij[i].ToString() + "  ");
+    }
+    window.alert("Dit zijn de getallen die je hebt aangemaakt");
+
+    // Hieronder wordt de gebruiker gevraagd of ze de lijst van groot naar klein of klein naar groot willen sorteren
+    window.alert("Wilt u de rij sorteren van groot naar klein kies dan 1, Wilt u de getallen rij sorteren klein naar groot kies dan 2");
+    keuze = Number(window.prompt('Enter a value for keuze'));
+    if (keuze == 1) {
+        for (teller = 0; teller <= rijGrootte - 1; teller++) {
+            for (i = 0; i <= rijGrootte - 2; i++) {
+                if (getallenRij[i] < getallenRij[i + 1]) {
+                    temp = getallenRij[i];
+                    getallenRij[i] = getallenRij[i + 1];
+                    getallenRij[i + 1] = temp;
+                }
+            }
+        }
+    } else {
+        for (teller = 0; teller <= rijGrootte - 1; teller++) {
+            for (i = 0; i <= rijGrootte - 2; i++) {
+                if (getallenRij[i] > getallenRij[i + 1]) {
+                    temp = getallenRij[i];
+                    getallenRij[i] = getallenRij[i + 1];
+                    getallenRij[i + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Hieronder wordt de lijst op de gesorteerde volgorde weergeven aan de gebruiker
+    for (i = 0; i <= rijGrootte - 1; i++) {
+        window.alert(getallenRij[i].ToString() + "  ");
+    }
+    window.alert("De getallen die je hebt aangemaakt zijn gesorteerd!");
+
+    // Hier worden de variablen declared die nodig zijn voor de binarysearch
+    var zoekGetal, plaatsGevonden, start, eind, midden;
+
+    window.alert("Welk Getal zou je in de rij willlen zoeken? Je kan kiezen tussen de getallen 1 tot en met 100.");
+    zoekGetal = Number(window.prompt('Enter a value for zoekGetal'));
+    start = 0;
+    eind = getallenRij.length - 1;
+    var gevonden;
+
+    gevonden = false;
+    while (begin <= eind) {
+        midden = (double) (start + eind) / 2;
+        if (zoekGetal == getallenRij[midden]) {
+            start = eind + 1;
+            gevonden = true;
+        } else {
+            if (zoekGetal > getallenRij[midden]) {
+                start = midden + 1;
+            } else {
+                eind = midden - 1;
+            }
+        }
+    }
+    plaatsGevonden = midden;
+    if (gevonden) {
+        window.alert("Nummer " + zoekGetal + " staat in de rij, op plek " + gevondenplaats);
+    } else {
+        window.alert("Het getal " + zoekGetal + " staat er niet in.");
+</script>
+</body>
+</head>
