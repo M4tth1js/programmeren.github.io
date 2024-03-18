@@ -1,0 +1,63 @@
+<head>
+<body>
+<script>
+function main() {
+    // Dit is het Bubblesort algoritme, hier kan een gebruiker een lijst aanmaken van een lengte die de gebruiker zelf kiest. De lijst zal dan door het programma worden gesorteerd. Sorteren kan worden gedaan van groot naar klein of klein naar groot
+    // Hieronder worden de benodigde variablen verklaard die het programma gebruikt.
+    var i, rijGrootte, keuze, temp, teller;
+
+    // hieronder wordt de gebruiker gevraagd hoelang de hun gewenste lijst is
+    window.alert("Hoeveel getallen zou je willen sorteren?");
+    rijGrootte = Number(window.prompt('Enter a value for rijGrootte'));
+    var getallenRij = createArray(rijGrootte);
+
+    // hier wordt de lijst aangemaakt
+    for (i = 0; i <= rijGrootte - 1; i++) {
+        getallenRij[i] = Math.floor(Math.random() * 100);
+    }
+
+    // Hieronder wordt de lijst weergeven op een ongesorteerd manier
+    for (i = 0; i <= rijGrootte - 1; i++) {
+        window.alert(getallenRij[i].ToString() + "  ");
+    }
+    window.alert("Dit zijn de getallen die je hebt aangemaakt");
+
+    // Hieronder wordt de gebruiker gevraagd of ze de lijst van groot naar klein of klein naar groot willen sorteren
+    window.alert("Wilt u de rij sorteren van groot naar klein kies dan 1, Wilt u de getallen rij sorteren klein naar groot kies dan 2");
+    keuze = Number(window.prompt('Enter a value for keuze'));
+    if (keuze == 1) {
+        for (teller = 0; teller <= rijGrootte - 1; teller++) {
+            for (i = 0; i <= rijGrootte - 2; i++) {
+                if (getallenRij[i] < getallenRij[i + 1]) {
+                    temp = getallenRij[i];
+                    getallenRij[i] = getallenRij[i + 1];
+                    getallenRij[i + 1] = temp;
+                }
+            }
+        }
+    } else {
+        for (teller = 0; teller <= rijGrootte - 1; teller++) {
+            for (i = 0; i <= rijGrootte - 2; i++) {
+                if (getallenRij[i] > getallenRij[i + 1]) {
+                    temp = getallenRij[i];
+                    getallenRij[i] = getallenRij[i + 1];
+                    getallenRij[i + 1] = temp;
+                }
+            }
+        }
+    }
+
+    // Hieronder wordt de lijst op de gesorteerde volgorde weergeven aan de gebruiker
+    for (i = 0; i <= rijGrootte - 1; i++) {
+        window.alert(getallenRij[i].ToString() + "  ");
+    }
+    window.alert("De getallen die je hebt aangemaakt zijn gesorteerd!");
+    window.alert("Bedankt voor het gebruiker van het programma!");
+}
+
+function bubblesort() {
+}
+
+<script/>
+<body/>
+<head/>
