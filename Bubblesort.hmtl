@@ -58,6 +58,6 @@ function main() {
 function bubblesort() {
 }
 
-<script/>
-<body/>
-<head/>
+</script>
+</body>
+</head>
